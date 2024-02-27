@@ -186,8 +186,8 @@ We provide prospect of the dataset. Here we show snapshot for some of the statis
 #### Frequency of classes present in training and validation set
 
 <div align="center">
-  <img src="media/class_imbalance/Histogram of class imbalance in training set.png" width="300" />
-  <img src="media/class_imbalance/Histogram of class imbalance in validation set.png" width="300" />
+  <img src="media/imbalance/Histogram of freq of unique class in train set.png" width="300" />
+  <img src="media/imbalance/Histogram of freq of unique class in validation set.png" width="300" />
 </div>
 
 
@@ -195,7 +195,7 @@ We provide prospect of the dataset. Here we show snapshot for some of the statis
 #### Number of images present in training and validation w.r.t classes
 
 <div align="center">
-    <img src="media/imbalance/Number of images per class for training dataset.png" width="300" />
+    <img src="media/imbalance/Number of images per class for training set.png" width="300" />
      <img src="media/imbalance/Number of images per class for validation datsaet.png" width="300" />
 </div>
 
