@@ -47,8 +47,5 @@ def vis_bbox(img, output_dict, classes,img_name, max_vis=40, prob_thres=0.02):
         		f'{class_name} {score:.3f}',
         		bbox={'facecolor': 'blue',
         		'alpha': 0.5}, fontsize=14, color='white')
-
-    save_path =img_name+".jpg"
-    print(save_path)
-    plt.savefig(save_path)
+    plt.savefig(img_name)
     plt.close()
