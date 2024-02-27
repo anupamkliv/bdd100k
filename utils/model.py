@@ -18,8 +18,6 @@ def get_model(model_name, num_classes):
     """
     if model_name == "fasterrcnn_resnet50_fpn":
         # Load a pre-trained Faster R-CNN model for fine-tuning
-        #backbone = torchvision.models.mobilenet_v2(weights="DEFAULT").features
-        #backbone.out_channels = 1280
         
         model = torchvision.models.detection.fasterrcnn_resnet50_fpn(
         			weights="DEFAULT",
