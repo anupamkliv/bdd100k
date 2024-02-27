@@ -195,8 +195,8 @@ We provide prospect of the dataset. Here we show snapshot for some of the statis
 #### Number of images present in training and validation w.r.t classes
 
 <div align="center">
-    <img src="media/class_imbalance/Number of images per class for training dataset.png" width="300" />
-     <img src="media/class_imbalance/Number of images per class for validation datsaet.png" width="300" />
+    <img src="media/imbalance/Number of images per class for training dataset.png" width="300" />
+     <img src="media/imbalance/Number of images per class for validation datsaet.png" width="300" />
 </div>
 
    
