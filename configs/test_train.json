@@ -1,0 +1,13 @@
+{
+    "lr": 0.0001,
+    "batch_size": 8,
+    "epochs": 1,
+    "model": "fasterrcnn_resnet50_fpn",
+    "img_dir": "dataset/bdd100k_images_100k/bdd100k/",
+    "label_dir": "dataset/bdd100k_labels_release/bdd100k/",
+    "train": true,
+    "prob_threshold": 0.02,
+    "iou_threshold": 0.5,
+    "train_images": 100,
+    "val_images": 3
+}
