@@ -1,4 +1,6 @@
 # Faster R-CNN on BDD100K using PyTorch
+[![Docker Pull](https://img.shields.io/docker/pulls/anupamkliv/bdd100k)](https://hub.docker.com/r/anupamkliv/bdd100k)
+[![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/pylint-dev/pylint)
 
 Images along with bounding boxes and scores present in BDD100K dataset for object detection
 <div align="left">
@@ -8,16 +10,16 @@ Images along with bounding boxes and scores present in BDD100K dataset for objec
 
 ## Installation
 
-- Install the latest version from source code:
-```
-$ git clone 
-$ pip install -r requirements.txt
-```
 - Its advisible to create an conda environment
 
 ```
 conda create --name env
 conda activate env
+```
+- Install the latest version from source code:
+```
+$ git clone https://github.com/anupamkliv/bdd100k.git
+$ pip install -r requirements.txt
 ```
 
 - Using Docker
@@ -33,6 +35,7 @@ Run the docker image
 ```
 docker run #image_name
 ```
+In line 17 of the docker file use the python file name for which the docker image needs to be made.
 
 ## Documentation
 
@@ -42,17 +45,17 @@ This repo consist of 3 three things
 2. Training
 3. Inference
 
-
+Training and inference are done using the same train.py file
 ## 1. Dataset overview
 
 ```
 python dataset.py \
- --all_stats 0 \
- --train_stats_attribute 1 \
- --class_imbalance 1 \
- --unclear_image 1 \
- --traffic_light 1 \
- --area_stats 1 \
+ --all_stats 1 \
+ --train_stats_attribute 0 \
+ --imbalance 0 \
+ --unclear_image 0 \
+ --traffic_light 0 \
+ --area_stats 0 \
  --visualize_dataset 0 \
 ....
 ```
@@ -78,14 +81,14 @@ python train.py \
 
 | Argument   | Description                                                  | Default |
 | ---------- | ------------------------------------------------------------ | ------- |
-| all_stats  | specifies the aggregation algorithm                          |   1     |
-| train_attribute | get the no of images of each attribute from train set   |   1     |
-| valid_attribute | get the no of images of each attribute from valid st    |   1     |
-| imbalance       | gives class and sample imbalance                        |   1     |
-| unclear_image   | gives number of blur images                             |   1     |
-| traffic_light   | gives where trafficlightcolor is None                   |   1     |
-| area_stats      | determines the mean and std present of areas in bounding box (BB)           |   1     |
-| visualize_dataset| original and bounding box BB visualization             |   1     |
+| all_stats  | if 1 it will give all the statistics                          |   1     |
+| train_attribute | get no of images of each attribute from train set   |   0     |
+| valid_attribute | get no of images of each attribute from valid set    |   0     |
+| imbalance       | gives class and sample imbalance statistics                       |   0     |
+| unclear_image   | gives number of blur images                             |   0     |
+| traffic_light   | gives where trafficlightcolor is None                   |   0     |
+| area_stats      | determines the mean and std of areas in the bounding box (BB)           |   0     |
+| visualize_dataset| original and bounding box visualization             |   0     |
 | number_visualize| number of images to be visualized                       |   3     |
 | train_json	  | label file for training dataset               	            |   dataset/bdd100k_labels_release/bdd100k/labels/bdd100k_labels_images_train.json |
 | label_json      | label file for validation dataset		                     |   dataset/bdd100k_labels_release/bdd100k/labels/bdd100k_labels_images_val.json   |
@@ -100,13 +103,13 @@ python train.py \
 | ---------- | ------------------------------------------------------------ | ------- |
 | lr	     | specifies learning rate used during training                 | 0.001   |
 | batch_size | specifies dataset batch size                                 | 8       |
-| epochs     | specifies client epochs during training                      | 2       |
-| model      | specifies network architecture                               | fasterRcnn |
+| epochs     | specifies epochs during training                      | 2       |
+| model      | specifies network architecture                               | fasterrcnn |
 | img_dir    | specifies image directory                                    | dataset/bdd100k_images_100k/bdd100k/ |
 | label_dir  | specifies label directory                                    | dataset/bdd100k_labels_release/bdd100k/ |
-| train     | specifies weather to train or only inference                  | 1       |
+| train     | specifies whether to train or only inference                  | 1       |
 | iou_thres | specifies the IoU threshold taken for mAP                    | 0.5       |
-| prob_thres | specifies score threshold for visualize BB                   | 0.02       |
+| prob_thres | specifies score threshold to visualize BB                   | 0.02       |
 | train_images | specifies the number of images to be taken during training | 50       |
 | val_images | specifies the number of images to be taken during inference  | 3       |
 
@@ -164,7 +167,7 @@ Download the dataset from: <a href="https://drive.google.com/file/d/1NgWX5YfEKbl
 ```
 ## Running tests
 
-Various unit tests and bench tests are available in the `test` directory. To run any tests, run the following command from the root directory:
+An example of test case is available in the `test` directory. To run the test, run the following command from the root directory:
 
 ```
 python -m test.unittests
@@ -206,14 +209,14 @@ This repo has support for the following Deep Learning model, which are loaded fr
 * FasterRCNN <a href="https://pytorch.org/vision/stable/models/faster_rcnn.html">Torchvision</a>
 
 ## Dominance of Car, Traffic sign and Traffic Light
-Training set
+Random 3 images taken from Training set
 <div align="center">
   <img src="media/imbalance_picture/train_2d3c5c52-c8746568.jpg" width="270" />
   <img src="media/imbalance_picture/train_5f4b8bdd-91aae9e3.jpg" width="270" /> 
  <img src="media/imbalance_picture/train_72b9980a-a8727801.jpg" width="270" />
 </div>
 
-Validation set
+Random 3 images taken from Validation set
 <div align="center">
   <img src="media/imbalance_picture/val_b4607812-d0ab0af7.jpg" width="270" />
   <img src="media/imbalance_picture/val_bdd7290c-d5f718f4.jpg" width="270" /> 
