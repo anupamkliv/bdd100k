@@ -177,7 +177,7 @@ python -m test.unittests
 
 | Dataset                | Training samples         | Validation samples | Classes 
 | ---------------------- | ------------------------ | ------------------ | ------------------ |
-| BDD100k <a href="https://doc.bdd100k.com/format.html#object-detection">Dataset</a>  | 70,000                   | 10,000             | 10                 |
+| <a href="https://doc.bdd100k.com/format.html#object-detection">BDD100k</a>  | 70,000                   | 10,000             | 10                 |
 
 ### Data Partition
 
